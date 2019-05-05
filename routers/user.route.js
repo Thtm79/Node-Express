@@ -2,7 +2,7 @@ const shortid = require('shortid');
 var db = require('../db');
 var express = require('express');
 var router = express.Router();
-var controller = require('./controller/user.controller');
+var controller = require('../controller/user.controller');
 
 router.get('/',controller.index);
 

@@ -12,7 +12,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //request: Yêu cầu cái gì đấy
 app.set('view engine', 'pug')
 app.set('views', './views')
-
+app.get('/',function(req , res)
+{
+	res.render('index');
+});
 
 app.use('/users',userRoute);
 app.listen(port, function() {
