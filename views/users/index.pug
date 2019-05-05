@@ -1,0 +1,12 @@
+a(href="/") Home
+a(href="/users/create") Create
+h1 Users
+form(action="/users/search", method="GET")
+	input(tpye="text", name="q")
+	button(type="submit") Search
+ul(style="text-align=none")
+	each user in users
+		li
+			span=user.name
+			span &nbsp;
+			a(href='/users/' +user.id) detail
