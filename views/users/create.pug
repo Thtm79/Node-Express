@@ -1,6 +1,12 @@
-a(href="/") Home
-h1 This is Create page
-form(action="/users/create", method="POST")
-	label Name
-	input(name="name" , type="text")
-	button(type="submit") Create
+extends ../layout/common.pug
+block content
+	if errors
+		each error in errors
+			.alert.alert-danger=error
+	form(action="/users/create", method="POST")
+		.form-group
+			label(for="inputName") Name
+			input.form-control(name="name" , type="text" , id="inputName", value=values?values.name:'')
+			label(for="inputPhone") Phone
+			input.form-control(name="phone" , type="text" , id="inputPhone",value=values?values.phone:'')
+			button.btn.btn-info(type='submit') Create

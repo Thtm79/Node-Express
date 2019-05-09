@@ -1,4 +1,11 @@
-h1 This is view
-span= user.name 
-	span &nbsp;
-	span=user.id
+extends ../layout/common.pug
+block content		
+	table.table
+		tr
+			th Name
+			th ID
+			th Phone
+		tr
+			th=user.id
+			th=user.name
+			th=user.phone
