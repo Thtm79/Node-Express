@@ -33,29 +33,7 @@ module.exports.getID = function(req, res){
 
 module.exports.postCreate = function(req, res) {
     req.body.id= shortid.generate();
-    var errors = [];
-    if(!req.body.name)
-    {
-        errors.push('Vui long nhap ten');
-    }
-
-    if(!req.body.phone)
-    {
-        errors.push('Vui long nhap sdt');
-    }
-    
-    if(errors.length)
-    {
-        res.render('users/create',{
-            errors: errors,
-            values:req.body
-        });
-        return;
-    }
     db.get('users').push(req.body).write();
     res.redirect('/users');
 };
 
-// module.exports.test = function(req,res){
-//     res.render('users/test');
-// };
